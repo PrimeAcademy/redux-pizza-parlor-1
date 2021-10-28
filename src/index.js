@@ -28,7 +28,7 @@ const orderReducer = (state = {}, action) => {
         return action.payload;
     }
     if(action.type === 'CREATE_ORDER'){
-        return {...state, action.payload}
+        return {...state, action.payload};
     }
     if(action.type === 'ADD_ORDER_INFO'){
     return {};
@@ -37,7 +37,7 @@ const orderReducer = (state = {}, action) => {
 //reducer for admin actions
 const adminReducer = (state = [], action) => {
     if(action.type === 'ADD_ORDER'){
-        return action.payload;
+        return [...state, action.payload];
     }
     return state;
 }
