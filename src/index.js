@@ -9,23 +9,29 @@ import logger from 'redux-logger';
 
 
 //reducer for customer interactions
-const checkoutReducer = (state = {}, action) => {
+const cartReducer = (state = [], action) => {
     //if-else statements for different actions 
-
     //action for adding menu item 
     if(action.type === 'ADD_PIZZA'){
         return {...state, action.payload};
-
-    //action for adding customers address information
-    }else if(action.type === 'ADD_ORDER_INFO'){
-        return {...state, action.payload};
-
     //action for clearing cart
     }else if(action.type === 'CLEAR_CHECKOUT'){ 
-        return {};
+        return [];
     }
 
-    return state;//default return in the case nothing is triggered 
+    return state; //default return in the case nothing is triggered 
+}
+//FORM REDUCERS
+const orderReducer = (state = {}, action) => {
+    //action for adding customers address information
+    if(action.type === 'SUBMIT_DETAILS'){
+        return action.payload;
+    }
+    if(action.type === 'CREATE_ORDER'){
+        return {...state, action.payload}
+    }
+    if(action.type === 'ADD_ORDER_INFO'){
+    return {};
 }
 
 //reducer for admin actions
@@ -38,7 +44,8 @@ const adminReducer = (state = [], action) => {
 
 const storeInstance = createStore(
     combineReducers({
-        checkoutReducer,
+        cartReducer,
+        orderReducer,
         adminReducer
     }),
     applyMiddleware(logger),
