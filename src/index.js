@@ -7,13 +7,6 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-const menuReducer = (state = [], action) => {
-  if (action.type === "SET_MENU_LIST") {
-    return [...state, action.payload];
-  }
-  return state;
-};
-
 //reducer for customer interactions
 const cartReducer = (state = [], action) => {
   //if-else statements for different actions
@@ -73,7 +66,6 @@ const storeInstance = createStore(
     cartReducer,
     orderReducer,
     adminReducer,
-    menuReducer,
   }),
   applyMiddleware(logger)
 );

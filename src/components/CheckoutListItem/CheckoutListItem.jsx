@@ -1,20 +1,14 @@
 export default function CheckoutListitem({ pizza, pizzaList }) {
-  let pizzaDB;
-  function findPizza() {
-    pizzaDB = pizzaList.filter((menuItem) => menuItem.id === Number(pizza.id));
-  }
-
-  if (pizzaList.length > 0) {
-    findPizza();
-  }
-  console.log(pizzaList);
-  //   console.log(pizza.id);
-  console.log(pizzaDB);
-  //   const listItemName = pizzaDB[0].name;
+  // find the menu item that corresponds to the ordered pizza's id
+  // uses the id from the order data and the id in the pizza db table
+  let cartItem = pizzaList.filter(
+    (menuItem) => menuItem.id === Number(pizza.id)
+  );
 
   return (
     <tr>
-      <td></td>
+      <td>{cartItem.map((menuItem) => menuItem.name)}</td>
+      <td>{cartItem.map((menuItem) => menuItem.price)}</td>
     </tr>
   );
 }

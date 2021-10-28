@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const [pizzaList, getPizzaList] = useState([]);
-  const dispatch = useDispatch();
 
   function getPizzas() {
     axios({
@@ -18,8 +17,7 @@ function App() {
     })
       .then((response) => {
         console.log(`GET /api/pizza response`, response.data);
-        dispatch({ type: "SET_MENU_LIST", payload: response.data });
-        // getPizzaList(response.data);
+        getPizzaList(response.data);
       })
       .catch((error) => {
         console.log(`GET /api/pizza ERROR`, error);

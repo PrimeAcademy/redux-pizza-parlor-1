@@ -1,18 +1,25 @@
 import { useSelector } from "react-redux";
 import CheckoutListItem from "../CheckoutListItem/CheckoutListItem.jsx";
+import "./CheckoutPage.css";
 
 export default function CheckoutPage({ pizzaList }) {
+  // get the order data from the store
   const orderData = useSelector((store) => store.orderReducer);
-  //   const getPizza = pizzaList.filter((pizza) => pizza.id === orderdata);
 
   return (
     <>
       <h3>Step 3: Checkout</h3>
-      <p>{orderData.customer_name}</p>
-      <p>{orderData.street_address}</p>
-      <p>{orderData.city}</p>
-      <p>{orderData.zip}</p>
-      <p>{orderData.type}</p>
+      <div className="address">
+        <p>{orderData.customer_name}</p>
+        <p>{orderData.street_address}</p>
+        <p>
+          {orderData.city}, {orderData.zip}
+        </p>
+      </div>
+      <div className="type">
+        <p>For {orderData.type}</p>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -24,12 +31,14 @@ export default function CheckoutPage({ pizzaList }) {
           {orderData.pizzas.map((pizza) => (
             <CheckoutListItem
               key={pizza.id}
-              pizza={pizza}
               pizzaList={pizzaList}
+              pizza={pizza}
             />
           ))}
         </tbody>
       </table>
+      <h2>Total: ${orderData.total}</h2>
+      <button onClick={handleCheckout}>Checkout</button>
     </>
   );
 }
