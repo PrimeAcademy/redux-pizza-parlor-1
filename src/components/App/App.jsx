@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import "./App.css";
-import PizzaForm from "../PizzaForm/PizzaForm";
-import PizzaMenu from "../PizzaMenu/PizzaMenu.jsx";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import {Route, HashRouter as Router, Link} from 'react-router-dom';
+
+import './App.css';
+import PizzaForm from '../PizzaForm/PizzaForm'
+import PizzaMenu from '../PizzaMenu/PizzaMenu.jsx'
+
 import Header from "../Header/Header.jsx";
 import CheckoutPage from "../CheckoutPage/CheckoutPage.jsx";
 import { useDispatch } from "react-redux";
@@ -28,12 +32,29 @@ function App() {
     getPizzas();
   }, []);
   return (
-    <div className="App">
+
+    <Router>
+    <div className='App'>
       <Header />
-      <PizzaMenu pizzaList={pizzaList} />
-      <PizzaForm />
-      <CheckoutPage pizzaList={pizzaList} />
+      
+      <Route path='/' exact>
+        <PizzaMenu pizzaList={pizzaList} />
+        <nav>
+          <button><Link to='/form'>NEXT</Link></button>
+        </nav>
+      </Route>
+
+
+      <Route path='/form'>
+        <PizzaForm />
+      </Route>
+
+      <Route path='/checkout'>
+        <CheckoutPage pizzaList={pizzaList}/>
+      </Route>
+
     </div>
+    </Router>
   );
 }
 
