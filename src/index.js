@@ -6,7 +6,6 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-
 //reducer for customer interactions
 const cartReducer = (state = [], action) => {
   //if-else statements for different actions
@@ -25,11 +24,9 @@ const orderReducer = (state = [], action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
     return action.payload;
-  }
-  if (action.type === "CREATE_ORDER") {
+  } else if (action.type === "CREATE_ORDER") {
     return [...state, action.payload];
-  }
-  if (action.type === "ADD_ORDER_INFO") {
+  } else if (action.type === "ADD_ORDER_INFO") {
     return [];
   }
   return state;
