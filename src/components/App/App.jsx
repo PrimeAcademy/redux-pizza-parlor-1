@@ -41,8 +41,6 @@ function App() {
     <div className='App'>
       <Header />
       
-
-      
       <Route path='/' exact>
         <PizzaMenu pizzaList={pizzaList} />
         <nav>
@@ -53,6 +51,10 @@ function App() {
 
       <Route path='/form'>
         <PizzaForm />
+      </Route>
+
+      <Route path='/checkout'>
+        <Checkout/>
       </Route>
 
     </div>
