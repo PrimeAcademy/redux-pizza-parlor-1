@@ -55,7 +55,6 @@ const storeInstance = createStore(
 
 ReactDOM.render(
     <Provider store={storeInstance}>
-    <App />
+        <App />
     </Provider>, 
-    document.getElementById('root'));
->>>>>>> master
+document.getElementById('root'));
