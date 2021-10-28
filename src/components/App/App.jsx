@@ -40,14 +40,19 @@ function App() {
     <Router>
     <div className='App'>
       <Header />
+      
 
-      <PizzaMenu pizzaList={pizzaList} />
-      <nav>
-        <button><link to='/form'>NEXT</link></button>
-      </nav>
+      
+      <Route path='/' exact>
+        <PizzaMenu pizzaList={pizzaList} />
+        <nav>
+          <button><Link to='/form'>NEXT</Link></button>
+        </nav>
+      </Route>
+
 
       <Route path='/form'>
-      <PizzaForm />
+        <PizzaForm />
       </Route>
 
     </div>
