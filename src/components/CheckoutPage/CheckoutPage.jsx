@@ -1,5 +1,3 @@
 import { useSelector } from "react-redux";
 
-export default function CheckoutPage() {
-    const orderDetails = 
-}
+export default function CheckoutPage() {}
