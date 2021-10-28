@@ -17,4 +17,6 @@ function PizzaMenu({ pizzaList }) {
     )
 };
 
-export default PizzaMenu;git a
+
+export default PizzaMenu;
+

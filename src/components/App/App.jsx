@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
-// import { useDispatch } from 'react-redux';
+
 import PizzaMenu from '../PizzaMenu/PizzaMenu.jsx'
+import Header from "../Header/Header.jsx";
 
 
 function App() {
@@ -33,14 +35,9 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+      <Header />
 
       <PizzaMenu pizzaList={pizzaList} />
-
-      {/* <img src='images/pizza_photo.png' /> */}
-      
 
     </div>
   );

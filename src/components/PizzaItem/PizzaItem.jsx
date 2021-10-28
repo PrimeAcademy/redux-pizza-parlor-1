@@ -12,4 +12,5 @@ function PizzaItem({pizzaItem}) {
     )
 }
 
+
 export default PizzaItem;
