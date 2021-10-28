@@ -49,15 +49,9 @@ function App() {
         <PizzaForm />
       </Route>
 
-<<<<<<< HEAD
-      <PizzaForm />
-      
-      <PizzaMenu pizzaList={pizzaList} />
-=======
       <Route path='/checkout'>
         <CheckoutPage pizzaList={pizzaList}/>
       </Route>
->>>>>>> master
 
     </div>
     </Router>
