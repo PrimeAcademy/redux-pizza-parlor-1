@@ -38,6 +38,7 @@ function App() {
       <Header />
 
       <PizzaForm />
+      
       <PizzaMenu pizzaList={pizzaList} />
 
     </div>
