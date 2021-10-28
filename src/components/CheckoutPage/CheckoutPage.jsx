@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CheckoutListItem from "../CheckoutListItem/CheckoutListItem.jsx";
 import "./CheckoutPage.css";
 
 export default function CheckoutPage({ pizzaList }) {
   // get the order data from the store
   const orderData = useSelector((store) => store.orderReducer);
-
+  const dispatch = useDispatch();
+  // const handleCheckout = () => {
+  //     dispatch({type: ""})
+  // }
   return (
     <>
       <h3>Step 3: Checkout</h3>
@@ -38,7 +41,7 @@ export default function CheckoutPage({ pizzaList }) {
         </tbody>
       </table>
       <h2>Total: ${orderData.total}</h2>
-      <button onClick={handleCheckout}>Checkout</button>
+      <button>Checkout</button>
     </>
   );
 }
