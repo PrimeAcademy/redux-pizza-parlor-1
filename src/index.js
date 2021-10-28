@@ -19,8 +19,26 @@ const cartReducer = (state = [], action) => {
 
   return state; //default return in the case nothing is triggered
 };
+const example = {
+  customer_name: "Donatello",
+  street_address: "20 W 34th St",
+  city: "New York",
+  zip: "10001",
+  total: "27.98",
+  type: "Pickup",
+  pizzas: [
+    {
+      id: "1",
+      quantity: "1",
+    },
+    {
+      id: "2",
+      quantity: "1",
+    },
+  ],
+};
 //FORM REDUCERS
-const orderReducer = (state = [], action) => {
+const orderReducer = (state = example, action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
     return action.payload;
