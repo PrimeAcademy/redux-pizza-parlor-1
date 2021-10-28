@@ -113,3 +113,5 @@ function PizzaForm() {
         </form>
     )
 }
+
+export default PizzaForm;
