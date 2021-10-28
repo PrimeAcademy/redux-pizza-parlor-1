@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
-
+import PizzaForm from '../PizzaForm/PizzaForm'
 import PizzaMenu from '../PizzaMenu/PizzaMenu.jsx'
 import Header from "../Header/Header.jsx";
 
@@ -37,6 +37,7 @@ function App() {
     <div className='App'>
       <Header />
 
+      <PizzaForm />
       <PizzaMenu pizzaList={pizzaList} />
 
     </div>
