@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App/App";
-
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
@@ -43,11 +42,9 @@ const orderReducer = (state = example, action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
     return action.payload;
-  }
-  if (action.type === "CREATE_ORDER") {
+  } else if (action.type === "CREATE_ORDER") {
     return [...state, action.payload];
-  }
-  if (action.type === "ADD_ORDER_INFO") {
+  } else if (action.type === "ADD_ORDER_INFO") {
     return [];
   }
   return state;

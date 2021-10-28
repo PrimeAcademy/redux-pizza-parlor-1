@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-
+import PizzaForm from "../PizzaForm/PizzaForm";
 import PizzaMenu from "../PizzaMenu/PizzaMenu.jsx";
 import Header from "../Header/Header.jsx";
 import CheckoutPage from "../CheckoutPage/CheckoutPage.jsx";
@@ -30,8 +30,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-
       <PizzaMenu pizzaList={pizzaList} />
+      <PizzaForm />
       <CheckoutPage pizzaList={pizzaList} />
     </div>
   );
