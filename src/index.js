@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+// import {Provider} from 'react-redux'
 
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -52,12 +53,8 @@ const storeInstance = createStore(
 );
 
 
-
-
-
-
 ReactDOM.render(
     <Provider store={storeInstance}>
-    <App />
+        <App />
     </Provider>, 
-    document.getElementById('root'));
+document.getElementById('root'));
