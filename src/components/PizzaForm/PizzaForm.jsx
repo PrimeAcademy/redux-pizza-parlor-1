@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {useHistory} from 'react-router-dom';
+
 
 function PizzaForm() {
 
@@ -9,6 +11,11 @@ function PizzaForm() {
     // const [zipCode, setZipCode] = useState('')
     // const [pickUp, setPickUp] = useState(false)
 
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.pushState('/checkout');
+    }
     const dispatch = useDispatch();
 
     const [orderToAdd, setOrderToAdd] = useState({ name: '', address: '', city: '', zipCode: '', pickUp: '', delivery: '' })
@@ -109,7 +116,7 @@ function PizzaForm() {
                     placeholder="delivery"
                 />
             </div>
-            <button type="submit">Next</button>
+            <button onClick={handleClick} type="submit">Next</button>
         </form>
     )
 }

@@ -1,6 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
+import {Route, HashRouter as Router, Link} from 'react-router-dom';
+
 import './App.css';
 import PizzaForm from '../PizzaForm/PizzaForm'
 import PizzaMenu from '../PizzaMenu/PizzaMenu.jsx'
@@ -34,13 +37,21 @@ function App() {
 
 
   return (
+    <Router>
     <div className='App'>
       <Header />
 
-      <PizzaForm />
       <PizzaMenu pizzaList={pizzaList} />
+      <nav>
+        <button><link to='/form'>NEXT</link></button>
+      </nav>
+
+      <Route path='/form'>
+      <PizzaForm />
+      </Route>
 
     </div>
+    </Router>
   );
 }
 
