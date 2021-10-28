@@ -3,15 +3,15 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   // grabbing the checkoutReducer state
-  //   const cartData = useSelector((store) => store.checkoutReducer());
+  const orderData = useSelector((store) => store.orderReducer);
 
   // grabbing the 'total' propery from the state (which is a single object containing order data)
-  //   const totalCartPrice = cartData.total.toFixed(2);
+  console.log(orderData.total);
 
   return (
     <header>
       <h1>Zoombini's Pizza Pass</h1>
-      <h3>Total: $0.00</h3>
+      <h3>Total: ${orderData.total}</h3>
     </header>
   );
 }
