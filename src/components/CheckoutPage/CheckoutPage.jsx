@@ -13,6 +13,26 @@ export default function CheckoutPage() {
   // get the pizza list from the menu;
   const pizzaList = useSelector((store) => store.menuReducer);
 
+
+  // const handleSubmit = () => {
+  //   console.log('CLICKED on checkout');
+  //   axios.post({
+  //     method: 'POST',
+  //     url: '/api/order',
+  //     data: orderData
+  //   }).then((response) => {
+  //     console.log(response)
+  //   }).catch((err) => {
+  //     alert('err')
+  //   })
+  //   //End post!
+  //   dispatch({
+  //     type: "CLEAR_CHECKOUT"
+  //   });
+  //   //dispatch to a clearing reducer
+  //   // history.push('/')
+  // };
+
   console.log(pizzaList);
   return (
     <>
