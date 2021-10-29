@@ -16,7 +16,10 @@ function App() {
 
   // get pizza from store and pass it as props or pull from store on each one?
 
+  const dispatch = useDispatch();
+
   function getPizzas() {
+    // console.log('this is getPizzas', getPizzas);
     axios({
       method: `GET`,
       url: `/api/pizza`,
