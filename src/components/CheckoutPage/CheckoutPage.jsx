@@ -11,17 +11,17 @@ export default function CheckoutPage() {
   // }
 
   // get the pizza list from the menu;
-  const pizzaList = useSelector(store => store.PizzaMenu);
+  const pizzaList = useSelector((store) => store.menuReducer);
 
-
+  console.log(pizzaList);
   return (
     <>
       <h3>Step 3: Checkout</h3>
       <div className="address">
-        <p>{orderData.customer_name}</p>
-        <p>{orderData.street_address}</p>
+        <p>{orderData.name}</p>
+        <p>{orderData.address}</p>
         <p>
-          {orderData.city}, {orderData.zip}
+          {orderData.city}, {orderData.zipCode}
         </p>
       </div>
       <div className="type">
