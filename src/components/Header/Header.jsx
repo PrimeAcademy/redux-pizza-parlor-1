@@ -20,8 +20,6 @@ export default function Header() {
   // first find out which pizzas these are in the menu
   let pizzas = pizzaMenu.filter((menuItem) => {
     for (let cartItem of cartPizzas) {
-      console.log(menuItem.id);
-      console.log(cartItem.id);
       if (menuItem.id === cartItem.id) {
         return true;
       }
