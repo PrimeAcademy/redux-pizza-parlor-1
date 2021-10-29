@@ -5,6 +5,8 @@ import "./CheckoutPage.css";
 export default function CheckoutPage() {
   // get the order data from the store
   const orderData = useSelector((store) => store.orderReducer);
+  const cartPizzas = useSelector((store) => store.cartReducer);
+
   const dispatch = useDispatch();
   // const handleCheckout = () => {
   //     dispatch({type: ""})
@@ -13,6 +15,19 @@ export default function CheckoutPage() {
   // get the pizza list from the menu;
   const pizzaList = useSelector((store) => store.menuReducer);
 
+  let pizzas = pizzaList.filter((menuItem) => {
+    for (let cartItem of cartPizzas) {
+      if (menuItem.id === cartItem.id) {
+        return true;
+      }
+    }
+  });
+  console.log(pizzas);
+
+  let total = pizzas.reduce(
+    (total, pizza) => Number(total) + Number(pizza.price),
+    0
+  );
   console.log(pizzaList);
   return (
     <>
@@ -45,7 +60,7 @@ export default function CheckoutPage() {
           ))}
         </tbody>
       </table>
-      <h2>Total: ${orderData.total}</h2>
+      <h2>Total: ${total}</h2>
       <button>Checkout</button>
     </>
   );

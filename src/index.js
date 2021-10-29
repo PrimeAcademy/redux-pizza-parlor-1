@@ -41,10 +41,12 @@ const example = {
 const orderReducer = (state = {}, action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
-    return action.payload;
+    return { ...state, ...action.payload };
   } else if (action.type === "CREATE_ORDER") {
     return { ...state, pizzas: action.payload }; // totalReducer
-  } else if (action.type === "ADD_ORDER_INFO") {
+  } else if (action.type === "UPDATE_TOTAL") {
+    return { ...state, total: action.payload };
+  } else if (action.type === "CLEAR_CHECKOUT") {
     return {};
   }
   return state;
