@@ -11,6 +11,7 @@ const cartReducer = (state = [], action) => {
   //if-else statements for different actions
   //action for adding menu item
   if (action.type === "ADD_PIZZA") {
+    action.payload.quantity = 1;
     return [...state, action.payload];
     //action for clearing cart
   } else if (action.type === "CLEAR_CHECKOUT") {
@@ -20,25 +21,16 @@ const cartReducer = (state = [], action) => {
   return state; //default return in the case nothing is triggered
 };
 const example = {
-  customer_name: "Donatello",
-  street_address: "20 W 34th St",
-  city: "New York",
-  zip: "10001",
+  customer_name: "",
+  street_address: "",
+  city: "",
+  zip: "",
   //   total: "27.98",
-  type: "Pickup",
-  //   pizzas: [
-  //     {
-  //       id: "1",
-  //       quantity: "1",
-  //     },
-  //     {
-  //       id: "2",
-  //       quantity: "1",
-  //     },
-  //   ],
+  type: "",
+  pizzas: [],
 };
 //FORM REDUCERS
-const orderReducer = (state = {}, action) => {
+const orderReducer = (state = example, action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
     return { ...state, ...action.payload };
@@ -47,7 +39,7 @@ const orderReducer = (state = {}, action) => {
   } else if (action.type === "UPDATE_TOTAL") {
     return { ...state, total: action.payload };
   } else if (action.type === "CLEAR_CHECKOUT") {
-    return {};
+    return example;
   }
   return state;
 };

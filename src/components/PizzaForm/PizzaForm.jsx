@@ -14,6 +14,14 @@ function PizzaForm() {
     type: "",
   });
 
+  const handleChangeFor = (event, property) => {
+    console.log("clicked");
+    setOrderToAdd({
+      ...orderToAdd,
+      [property]: event.target.value,
+    });
+  };
+
   const handleNameChange = (event) => {
     console.log("clicked");
     setOrderToAdd({
@@ -77,7 +85,7 @@ function PizzaForm() {
   return (
     <form onSubmit={(event) => addCustomer(event)}>
       <input
-        onChange={handleNameChange}
+        onChange={(event) => handleChangeFor(event, 'name' )}
         type="text"
         value={orderToAdd.name}
         placeholder="name"
