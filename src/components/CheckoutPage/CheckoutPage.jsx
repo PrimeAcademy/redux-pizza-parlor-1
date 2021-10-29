@@ -2,13 +2,18 @@ import { useSelector, useDispatch } from "react-redux";
 import CheckoutListItem from "../CheckoutListItem/CheckoutListItem.jsx";
 import "./CheckoutPage.css";
 
-export default function CheckoutPage({ pizzaList }) {
+export default function CheckoutPage() {
   // get the order data from the store
   const orderData = useSelector((store) => store.orderReducer);
   const dispatch = useDispatch();
   // const handleCheckout = () => {
   //     dispatch({type: ""})
   // }
+
+  // get the pizza list from the menu;
+  const pizzaList = useSelector(store => store.PizzaMenu);
+
+
   return (
     <>
       <h3>Step 3: Checkout</h3>
