@@ -7,19 +7,7 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 //reducer for customer interactions
-const cartReducer = (
-  state = [
-    {
-      id: 1,
-      quantity: "1",
-    },
-    {
-      id: 2,
-      quantity: "1",
-    },
-  ],
-  action
-) => {
+const cartReducer = (state = [], action) => {
   //if-else statements for different actions
   //action for adding menu item
   if (action.type === "ADD_PIZZA") {
