@@ -7,19 +7,7 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 //reducer for customer interactions
-const cartReducer = (
-  state = [
-    {
-      id: 1,
-      quantity: "1",
-    },
-    {
-      id: 2,
-      quantity: "1",
-    },
-  ],
-  action
-) => {
+const cartReducer = (state = [], action) => {
   //if-else statements for different actions
   //action for adding menu item
   if (action.type === "ADD_PIZZA") {
@@ -53,10 +41,12 @@ const example = {
 const orderReducer = (state = {}, action) => {
   //action for adding customers address information
   if (action.type === "SUBMIT_DETAILS") {
-    return action.payload;
+    return { ...state, ...action.payload };
   } else if (action.type === "CREATE_ORDER") {
     return { ...state, pizzas: action.payload }; // totalReducer
-  } else if (action.type === "ADD_ORDER_INFO") {
+  } else if (action.type === "UPDATE_TOTAL") {
+    return { ...state, total: action.payload };
+  } else if (action.type === "CLEAR_CHECKOUT") {
     return {};
   }
   return state;
