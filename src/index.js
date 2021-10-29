@@ -58,6 +58,7 @@ const adminReducer = (state = [], action) => {
   return state;
 };
 
+
 // Menu / PizzaList reducer
 const menuReducer = (state = [], action) => {
     if(action.type === "ADD_MENU") {
