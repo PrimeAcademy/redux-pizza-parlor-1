@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-import {Route, HashRouter as Router, Link} from 'react-router-dom';
+import { Route, HashRouter as Router, Link } from "react-router-dom";
 
-import './App.css';
-import PizzaForm from '../PizzaForm/PizzaForm'
-import PizzaMenu from '../PizzaMenu/PizzaMenu.jsx'
+import "./App.css";
+import PizzaForm from "../PizzaForm/PizzaForm";
+import PizzaMenu from "../PizzaMenu/PizzaMenu.jsx";
 
 import Header from "../Header/Header.jsx";
 import CheckoutPage from "../CheckoutPage/CheckoutPage.jsx";
@@ -32,28 +32,27 @@ function App() {
     getPizzas();
   }, []);
   return (
-
     <Router>
-    <div className='App'>
-      <Header />
-      
-      <Route path='/' exact>
-        <PizzaMenu pizzaList={pizzaList} />
-        <nav>
-          <button><Link to='/form'>NEXT</Link></button>
-        </nav>
-      </Route>
+      <div className="App">
+        <Header pizzaList={pizzaList} />
 
+        <Route path="/" exact>
+          <PizzaMenu pizzaList={pizzaList} />
+          <nav>
+            <button>
+              <Link to="/form">NEXT</Link>
+            </button>
+          </nav>
+        </Route>
 
-      <Route path='/form'>
-        <PizzaForm />
-      </Route>
+        <Route path="/form">
+          <PizzaForm />
+        </Route>
 
-      <Route path='/checkout'>
-        <CheckoutPage pizzaList={pizzaList}/>
-      </Route>
-
-    </div>
+        <Route path="/checkout">
+          <CheckoutPage pizzaList={pizzaList} />
+        </Route>
+      </div>
     </Router>
   );
 }

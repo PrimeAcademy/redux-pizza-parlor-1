@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function PizzaForm() {
   const dispatch = useDispatch();
@@ -52,6 +52,8 @@ function PizzaForm() {
     });
   };
 
+  const pizzas = useSelector((store) => store.cartReducer);
+
   const addCustomer = (event) => {
     event.preventDefault();
 
@@ -59,6 +61,7 @@ function PizzaForm() {
       type: "SUBMIT_DETAILS",
       payload: orderToAdd,
     });
+    dispatch({ type: "CREATE_ORDER", payload: pizzas });
     setOrderToAdd({
       name: "",
       address: "",
