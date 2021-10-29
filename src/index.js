@@ -77,6 +77,7 @@ const storeInstance = createStore(
   applyMiddleware(logger)
 );
 
+
 ReactDOM.render(
   <Provider store={storeInstance}>
     <App />
