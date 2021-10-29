@@ -5,6 +5,7 @@ export default function CheckoutListitem({ pizza, pizzaList }) {
   let cartItem = pizzaList.filter(
     (menuItem) => menuItem.id === Number(pizza.id)
   );
+  console.log(cartItem);
 
   return (
     <tr>
