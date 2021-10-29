@@ -12,16 +12,24 @@ import CheckoutPage from "../CheckoutPage/CheckoutPage.jsx";
 import { useDispatch } from "react-redux";
 
 function App() {
-  const [pizzaList, getPizzaList] = useState([]);
+  // const [pizzaList, getPizzaList] = useState([]);
+
+  // get pizza from store and pass it as props or pull from store on each one?
+
+  const dispatch = useDispatch();
 
   function getPizzas() {
+    // console.log('this is getPizzas', getPizzas);
     axios({
       method: `GET`,
       url: `/api/pizza`,
     })
       .then((response) => {
         console.log(`GET /api/pizza response`, response.data);
-        getPizzaList(response.data);
+        dispatch({
+          type: "ADD_MENU",
+          payload: response.data,
+        });
       })
       .catch((error) => {
         console.log(`GET /api/pizza ERROR`, error);
@@ -31,26 +39,25 @@ function App() {
   useEffect(() => {
     getPizzas();
   }, []);
+
   return (
     <Router>
       <div className="App">
-        <Header pizzaList={pizzaList} />
+        <Header />
 
         <Route path="/" exact>
-          <PizzaMenu pizzaList={pizzaList} />
+          <PizzaMenu />
           <nav>
             <button>
               <Link to="/form">NEXT</Link>
             </button>
           </nav>
         </Route>
-
         <Route path="/form">
           <PizzaForm />
         </Route>
-
         <Route path="/checkout">
-          <CheckoutPage pizzaList={pizzaList} />
+          <CheckoutPage />
         </Route>
       </div>
     </Router>
