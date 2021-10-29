@@ -1,11 +1,11 @@
 import "./Header.css";
 import { useSelector } from "react-redux";
 
-export default function Header({ pizzaList }) {
+export default function Header() {
   // grabbing the checkoutReducer state
   const orderData = useSelector((store) => store.orderReducer);
   const cartPizzas = useSelector((store) => store.cartReducer);
-  //   const pizzaMenu = useSelector((store) => store.menuReducer);
+  const pizzaMenu = useSelector((store) => store.menuReducer);
   // cartPizzas is an array [
   //     {
   //       id: "1",
@@ -18,7 +18,7 @@ export default function Header({ pizzaList }) {
   //     },
   //   ]
   // first find out which pizzas these are in the menu
-  let pizzas = pizzaList.filter((menuItem) => {
+  let pizzas = pizzaMenu.filter((menuItem) => {
     for (let cartItem of cartPizzas) {
       console.log(menuItem.id);
       console.log(cartItem.id);

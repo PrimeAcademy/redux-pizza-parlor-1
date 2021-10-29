@@ -55,7 +55,7 @@ const orderReducer = (state = {}, action) => {
   if (action.type === "SUBMIT_DETAILS") {
     return action.payload;
   } else if (action.type === "CREATE_ORDER") {
-    return { ...state, pizzas: action.payload, total: action.payload }; // totalReducer
+    return { ...state, pizzas: action.payload }; // totalReducer
   } else if (action.type === "ADD_ORDER_INFO") {
     return {};
   }
@@ -70,15 +70,13 @@ const adminReducer = (state = [], action) => {
   return state;
 };
 
-
 // Menu / PizzaList reducer
 const menuReducer = (state = [], action) => {
-    if(action.type === "ADD_MENU") {
-        return action.payload
-    }
-    return state;
+  if (action.type === "ADD_MENU") {
+    return action.payload;
+  }
+  return state;
 };
-
 
 const storeInstance = createStore(
   combineReducers({
@@ -89,7 +87,6 @@ const storeInstance = createStore(
   }),
   applyMiddleware(logger)
 );
-
 
 ReactDOM.render(
   <Provider store={storeInstance}>
