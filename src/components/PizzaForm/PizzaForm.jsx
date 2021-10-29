@@ -71,9 +71,6 @@ function PizzaForm() {
       zipCode: "",
       type: "",
     });
-  };
-
-  const handleClick = () => {
     history.push("/checkout");
   };
 
@@ -122,9 +119,7 @@ function PizzaForm() {
         />
         <label htmlFor="delivery">Delivery</label>
       </div>
-      <button onClick={handleClick} type="submit">
-        Next
-      </button>
+      <button type="submit">Next</button>
     </form>
   );
 }
