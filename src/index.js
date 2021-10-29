@@ -58,14 +58,25 @@ const adminReducer = (state = [], action) => {
   return state;
 };
 
+// Menu / PizzaList reducer
+const menuReducer = (state = [], action) => {
+    if(action.type === "ADD_MENU") {
+        return action.payload
+    }
+    return state;
+};
+
+
 const storeInstance = createStore(
   combineReducers({
     cartReducer,
     orderReducer,
     adminReducer,
+    menuReducer,
   }),
   applyMiddleware(logger)
 );
+
 
 ReactDOM.render(
   <Provider store={storeInstance}>

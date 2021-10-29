@@ -1,8 +1,11 @@
 import PizzaItem from "../PizzaItem/PizzaItem.jsx";
 import "./PizzaMenu.css";
+import {useSelector} from 'react-redux';
 
-function PizzaMenu({ pizzaList }) {
-  console.log(pizzaList);
+function PizzaMenu() {
+
+    const pizzaList = useSelector(store => store.menuReducer);
+
   return (
     <div>
       <div className="menu-container">
